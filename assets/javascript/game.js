@@ -6,7 +6,7 @@ var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 var wins = 0;
 var losses = 0;
 var guessSoFar = []; // Array for user inputs
-var guessLeft = 7; // 7 tries to guess the letter
+var guessLeft = 10; // 10 tries to guess the letter
 
 // This function is used when the user inputs a character 
 document.onkeyup = function(event){
@@ -16,20 +16,20 @@ document.onkeyup = function(event){
     // Generate a random letter and store it as a variable 
     var compGuess = letters[Math.floor(Math.random() * letters.length)];
     guessSoFar.push(userGuess); // Place user guess into array
-    if (userGuess == randomLetter){
+    if (userGuess == compGuess){
         wins++;
         alert("Hmm... you actually got it? You're a psychic! You win!");
-        guessLeft = 7; // Resets guess counter
+        guessLeft = 10; // Resets guess counter
         guessSoFar.length = 0; // Resets letters chosen in array
     }
     else if (guessLeft == 0){
         losses++;
         alert('Aww, you didn\'t get it... too bad! Wanna try again?!');
-        guessLeft = 7;
+        guessLeft = 10;
         guessSoFar.length = 0;
     }
     else if (userGuess !== compGuess){
-        guessesLeft--; //decrementing the guesses left
+        guessLeft--; //decrementing the guesses left
     }  
 
 
